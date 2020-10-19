@@ -10,6 +10,7 @@ import { TabSigninComponent } from './display-sandbox/tab-login-signin/tab-signi
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import { HomePageComponent } from './home-page/home-page.component';
 import { HPNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
+import {AlertModule} from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,12 @@ import { HPNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
     HomePageComponent,
     HPNavBarComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    TabsModule.forRoot()
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        TabsModule.forRoot(),
+        AlertModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

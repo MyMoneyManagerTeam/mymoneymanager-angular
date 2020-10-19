@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <div class="container alert-fixed">
+    <alert *ngFor="let alert of alerts" [type]="alert.type" [dismissible]="true" [dismissOnTimeout]="alert.timeout" (onClosed)="onClosed(alert)">{{alert.msg}}</alert>
+  </div>
+  <button class="fixed-bottom btn btn-primary" (click)="add()">Alert</button>
+  <router-outlet></router-outlet>
+</div>
