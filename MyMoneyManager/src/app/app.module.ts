@@ -8,6 +8,8 @@ import { TabLoginSigninComponent } from './display-sandbox/tab-login-signin/tab-
 import { TabLoginComponent } from './display-sandbox/tab-login-signin/tab-login/tab-login.component';
 import { TabSigninComponent } from './display-sandbox/tab-login-signin/tab-signin/tab-signin.component';
 import {TabsModule} from 'ngx-bootstrap/tabs';
+import { HomePageComponent } from './home-page/home-page.component';
+import { HPNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {TabsModule} from 'ngx-bootstrap/tabs';
     DisplaySandboxComponent,
     TabLoginSigninComponent,
     TabLoginComponent,
-    TabSigninComponent
+    TabSigninComponent,
+    HomePageComponent,
+    HPNavBarComponent,
   ],
   imports: [
     BrowserModule,
