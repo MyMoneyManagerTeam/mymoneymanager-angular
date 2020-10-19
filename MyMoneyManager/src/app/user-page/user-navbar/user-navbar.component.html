@@ -22,21 +22,20 @@
           <a id="button-animated" dropdownToggle type="button" class="nav-link dropdown-toggle" aria-controls="dropdown-animated">
             <span class="caret"></span>
           </a>
-          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="button-animated">
+          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right bg-dark" role="menu" aria-labelledby="button-animated">
             <li role="menuitem">
-              <a class="dropdown-item" routerLinkActive="active" [routerLink]="['/user/settings']">Settings</a>
+              <a class="dropdown-item text-white" routerLinkActive="bg-primary" [routerLink]="['/user/settings']">Settings</a>
             </li>
             <li role="menuitem">
-              <a class="dropdown-item" routerLinkActive="active" [routerLink]="['/user/profile']">Profile</a>
+              <a class="dropdown-item text-white" routerLinkActive="bg-primary" [routerLink]="['/user/profile']">Profile</a>
             </li>
             <li role="menuitem">
-              <a class="dropdown-item" routerLinkActive="active" [routerLink]="['/user/help']">Help</a>
+              <a class="dropdown-item text-white" routerLinkActive="bg-primary" [routerLink]="['/user/help']">Help</a>
             </li>
           </ul>
         </div>
       </li>
     </ul>
-
   </div>
 </nav>
 

@@ -7,10 +7,10 @@ import {ProfileComponent} from './user-page/profile/profile.component';
 import {DashboardComponent} from './user-page/dashboard/dashboard.component';
 import {SettingsComponent} from './user-page/settings/settings.component';
 import {HelpComponent} from './user-page/help/help.component';
-import {HpHomeComponent} from "./home-page/hp-home/hp-home.component";
-import {HpPresentationComponent} from "./home-page/hp-presentation/hp-presentation.component";
-import {HpContactComponent} from "./home-page/hp-contact/hp-contact.component";
-import {HpConnectionComponent} from "./home-page/hp-connection/hp-connection.component";
+import {HpHomeComponent} from './home-page/hp-home/hp-home.component';
+import {HpPresentationComponent} from './home-page/hp-presentation/hp-presentation.component';
+import {HpContactComponent} from './home-page/hp-contact/hp-contact.component';
+import {HpConnectionComponent} from './home-page/hp-connection/hp-connection.component';
 
 const routes: Routes = [{
     path: 'sandbox',
@@ -39,22 +39,18 @@ const routes: Routes = [{
   },
   {
     path: '',
-    component: HomePageComponent,
-  },
-  {
-    path: 'hp-home',
     component: HpHomeComponent,
   },
   {
-    path: 'hp-presentation',
+    path: 'presentation',
     component: HpPresentationComponent,
   },
   {
-    path: 'hp-contact',
+    path: 'contact',
     component: HpContactComponent,
   },
   {
-    path: 'hp-connection',
+    path: 'connection',
     component: HpConnectionComponent,
   },
 ];
