@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './hp-nav-bar.component.html',
   styleUrls: ['./hp-nav-bar.component.css']
 })
-export class HPNavBarComponent implements OnInit {
+export class HpNavBarComponent implements OnInit {
 
   constructor() { }
 
