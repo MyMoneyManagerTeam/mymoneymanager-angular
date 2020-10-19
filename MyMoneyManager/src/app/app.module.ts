@@ -9,8 +9,12 @@ import { TabLoginComponent } from './display-sandbox/tab-login-signin/tab-login/
 import { TabSigninComponent } from './display-sandbox/tab-login-signin/tab-signin/tab-signin.component';
 import {TabsModule} from 'ngx-bootstrap/tabs';
 import { HomePageComponent } from './home-page/home-page.component';
-import { HPNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
 import {AlertModule} from 'ngx-bootstrap/alert';
+import { HpHomeComponent } from './home-page/hp-home/hp-home.component';
+import { HpPresentationComponent } from './home-page/hp-presentation/hp-presentation.component';
+import { HpContactComponent } from './home-page/hp-contact/hp-contact.component';
+import { HpConnectionComponent } from './home-page/hp-connection/hp-connection.component';
+import { HpNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import {AlertModule} from 'ngx-bootstrap/alert';
     TabLoginComponent,
     TabSigninComponent,
     HomePageComponent,
-    HPNavBarComponent,
+    HpHomeComponent,
+    HpPresentationComponent,
+    HpContactComponent,
+    HpConnectionComponent,
+    HpNavBarComponent,
   ],
     imports: [
         BrowserModule,
