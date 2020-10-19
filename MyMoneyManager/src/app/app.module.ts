@@ -24,6 +24,7 @@ import { HpPresentationComponent } from './home-page/hp-presentation/hp-presenta
 import { HpContactComponent } from './home-page/hp-contact/hp-contact.component';
 import { HpConnectionComponent } from './home-page/hp-connection/hp-connection.component';
 import { HpNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
+import { AlertComponent } from './global-components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { HpNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
     HpContactComponent,
     HpConnectionComponent,
     HpNavBarComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
