@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark bg-dark" style="background-color: #caffa1;">
-  <a class="text-white" id="home" routerLink="/hp-home">Accueil</a>
-  <a class="text-white" id="presentation" routerLink="/hp-presentation">Présentation</a>
-  <a class="text-white" id="contact" routerLink="/hp-contact">Contactez-nous</a>
-  <button class="btn btn-outline-secondary text-white" routerLink="/hp-connection"> Connexion/Inscription </button>
+  <a class="text-white" id="home" [routerLink]="['']">Accueil</a>
+  <a class="text-white" id="presentation" [routerLink]="['/presentation']">Présentation</a>
+  <a class="text-white" id="contact" [routerLink]="['/contact']">Contactez-nous</a>
+  <button class="btn btn-outline-secondary text-white" [routerLink]="['/connection']"> Connexion/Inscription </button>
 </nav>

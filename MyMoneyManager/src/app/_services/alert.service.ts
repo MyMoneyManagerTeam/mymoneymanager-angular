@@ -14,7 +14,6 @@ export class AlertService {
     return this.subject.asObservable().pipe(filter(x => x && x.id === id));
   }
 
-  // convenience methods
   success(message: string, options?: any): void {
     this.alert(new Alert({ ...options, type: AlertType.Success, message }));
   }
@@ -31,7 +30,6 @@ export class AlertService {
     this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
   }
 
-  // main alert method
   alert(alert: Alert): void {
     alert.id = alert.id || this.defaultId;
     this.subject.next(alert);
