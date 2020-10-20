@@ -31,6 +31,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
 import { HpRegisterComponent } from './home-page/hp-register/hp-register.component';
+import { NotFoundComponent } from './global-components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { HpRegisterComponent } from './home-page/hp-register/hp-register.compone
     HpNavBarComponent,
     AlertComponent,
     HpRegisterComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
