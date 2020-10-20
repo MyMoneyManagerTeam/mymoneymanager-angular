@@ -1,6 +1,33 @@
-<nav class="navbar navbar-dark bg-dark" style="background-color: #caffa1;">
-  <a class="text-white" id="home" [routerLink]="['']">Accueil</a>
-  <a class="text-white" id="presentation" [routerLink]="['/presentation']">Présentation</a>
-  <a class="text-white" id="contact" [routerLink]="['/contact']">Contactez-nous</a>
-  <button class="btn btn-outline-secondary text-white" [routerLink]="['/connection']"> Connexion/Inscription </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">MyMoneyManager</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="nav navbar-nav mr-auto w-100">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['']">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/presentation']">Presentation</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/contact']">Contactez-nous</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/connection']">Connexion</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLinkActive="active" [routerLink]="['/connection']">S'inscrire</a>
+      </li>
+    </ul>
+  </div>
 </nav>
+
+
+
+
+
+

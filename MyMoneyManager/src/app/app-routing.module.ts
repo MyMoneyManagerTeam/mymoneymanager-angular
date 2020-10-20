@@ -42,6 +42,10 @@ const routes: Routes = [{
     component: HpHomeComponent,
   },
   {
+    path: 'home',
+    component: HpHomeComponent,
+  },
+  {
     path: 'presentation',
     component: HpPresentationComponent,
   },
