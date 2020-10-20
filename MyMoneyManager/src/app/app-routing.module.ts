@@ -69,6 +69,11 @@ const routes: Routes = [{
     ],
   },
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/home/index',
+  },
+  {
     path: '**',
     component: NotFoundComponent,
   }

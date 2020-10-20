@@ -1,25 +1,29 @@
-<div id="bodlike">
-  <form class="form-signin">
-    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
-    <input type="text" id="username" placeholder="Email" formControlName="username" class="form-control"/>
-    <input type="password" id="password" placeholder="Mot de passe" formControlName="password" class="form-control"/>
-    <input type="password" id="confirmPassword" placeholder="Confirmer le mot de passe" class="form-control"/>
-    <input type="number" id="tel" placeholder="Telephone" class="form-control"/>
-    <input type="text" id="pays" placeholder="Pays" class="form-control"/>
-    <input type="text" id="adresse" placeholder="Adresse" class="form-control"/>
-    <input type="int" id="codePostal" placeholder="Code postal" class="form-control"/>
-    <input type="password" id="ville" placeholder="Ville" class="form-control"/>
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Se souvenir de moi
-      </label>
-    </div>
-    <button class="btn btn-primary">
-      Créer mon compte
-    </button>
-    <p>Déjà un compte? <a [routerLink]="['/register']">Se connecter</a></p>
-    <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
-  </form>
+<div class="col-md-6 offset-md-3 mt-5 not-selectable">
+  <div class="card" id="bodlike">
+    <form class="form-signin">
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
+      <input type="text" id="username" placeholder="Email" formControlName="username" class="form-control"/>
+      <input type="password" id="password" placeholder="Mot de passe" formControlName="password" class="form-control"/>
+      <input type="password" id="confirmPassword" placeholder="Confirmer le mot de passe" class="form-control"/>
+      <input type="number" id="tel" placeholder="Telephone" class="form-control"/>
+      <input type="text" id="pays" placeholder="Pays" class="form-control"/>
+      <input type="text" id="adresse" placeholder="Adresse" class="form-control"/>
+      <div class="input-group">
+      <input type="number" id="codePostal" placeholder="Code postal" class="form-control"/>
+      <input type="text" id="ville" placeholder="Ville" class="form-control"/>
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Se souvenir de moi
+        </label>
+      </div>
+      <button class="btn btn-primary">
+        Créer mon compte
+      </button>
+      <p>Déjà un compte? <a [routerLink]="['/register']">Se connecter</a></p>
+      <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
+    </form>
+  </div>
 </div>
 
