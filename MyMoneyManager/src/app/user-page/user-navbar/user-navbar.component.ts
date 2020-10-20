@@ -1,4 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
+import {AuthentificationService} from '../../_services/authentification.service';
+import {AlertService} from '../../_services/alert.service';
 
 @Component({
   selector: 'app-user-navbar',
@@ -8,7 +10,7 @@ import {Component, HostListener, OnInit} from '@angular/core';
 export class UserNavbarComponent implements OnInit {
   isCollapsed = true;
 
-  constructor() { }
+  constructor(private authentificationService: AuthentificationService, private alertService: AlertService) { }
 
   @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event): void {
     const result = confirm('Les changements apportés pourraient ne pas être sauvegardés.');
@@ -23,5 +25,10 @@ export class UserNavbarComponent implements OnInit {
 
   toggleNav(): void {
     this.isCollapsed = !this.isCollapsed;
+  }
+
+  logout(): void {
+    this.authentificationService.logout();
+    this.alertService.success('Vous êtes maintenant déconnecté', {autoClose: true, keepAfterRouteChange: true});
   }
 }

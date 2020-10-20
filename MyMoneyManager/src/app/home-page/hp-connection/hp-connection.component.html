@@ -1,18 +1,33 @@
 <app-hp-nav-bar></app-hp-nav-bar>
-<div id="bodlike">
-  <form class="form-signin">
-    <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-    <input type="email" id="inputEmail" class="form-control" placeholder="Email">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password">
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Se souvenir de moi
-      </label>
+<div class="col-md-6 offset-md-3 mt-5">
+  <div class="alert alert-info">
+    Username: test<br />
+    Password: test
+  </div>
+  <div class="card">
+    <h4 class="card-header">Connection</h4>
+    <div class="card-body">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <button [disabled]="loading" class="btn btn-primary">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+          Login
+        </button>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </form>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Se connecter</button>
-    <p>Pas encore de compte? <a href="#">S'inscrire</a></p>
-    <p>Mot de passe oublié? <a href="#">Récupération</a></p>
-    <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
-  </form>
+  </div>
 </div>
