@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {Routes, RouterModule, Router, NavigationEnd} from '@angular/router';
+import {Routes, RouterModule, Router, NavigationEnd, NavigationStart} from '@angular/router';
 import {DisplaySandboxComponent} from './display-sandbox/display-sandbox.component';
 import {UserPageComponent} from './user-page/user-page.component';
 import {ProfileComponent} from './user-page/profile/profile.component';
@@ -90,11 +90,12 @@ export class AppRoutingModule {
 
   private routeEvent(router: Router): void {
     router.events.subscribe(e => {
-      if (e instanceof NavigationEnd) {
-        if (e.url === '/home') {
+      if (e instanceof NavigationStart) {
+        console.log(e);
+        if (e.url.includes('/home') && !e.url.includes('/home/')) {
           router.navigate(['/home/index']);
         }
-        if (e.url === '/user') {
+        if (e.url.includes('/user') && !e.url.includes('/user/')) {
           router.navigate(['/user/dashboard']);
         }
       }
