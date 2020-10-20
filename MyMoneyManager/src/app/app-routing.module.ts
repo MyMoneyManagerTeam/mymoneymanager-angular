@@ -11,6 +11,7 @@ import {HpHomeComponent} from './home-page/hp-home/hp-home.component';
 import {HpPresentationComponent} from './home-page/hp-presentation/hp-presentation.component';
 import {HpContactComponent} from './home-page/hp-contact/hp-contact.component';
 import {HpConnectionComponent} from './home-page/hp-connection/hp-connection.component';
+import {AuthGuard} from './_helpers/auth.guard';
 
 const routes: Routes = [{
     path: 'sandbox',
@@ -18,6 +19,7 @@ const routes: Routes = [{
   },
   {
     path: 'user',
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'profile',

@@ -10,8 +10,4 @@ export class AppComponent {
   title = 'MyMoneyManager';
   constructor(private alertService: AlertService) {
   }
-
-  add(): void {
-    this.alertService.success('Ok ça marche', {autoClose: true, keepAfterRouteChange: true});
-  }
 }
