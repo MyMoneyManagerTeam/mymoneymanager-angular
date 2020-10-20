@@ -30,6 +30,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
+import { HpRegisterComponent } from './home-page/hp-register/hp-register.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import {ErrorInterceptor} from './_helpers/error.interceptor';
     HpConnectionComponent,
     HpNavBarComponent,
     AlertComponent,
+    HpRegisterComponent,
   ],
   imports: [
     BrowserModule,

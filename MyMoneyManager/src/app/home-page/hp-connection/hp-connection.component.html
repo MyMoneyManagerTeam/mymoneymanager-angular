@@ -6,7 +6,6 @@
     Password: test
   </div>
   <div class="card" id="bodlike">
-    <div class="card-body">
       <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
@@ -32,10 +31,9 @@
           Se connecter
         </button>
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-        <p>Pas encore de compte? <a href="#">S'inscrire</a></p>
+        <p>Pas encore de compte? <a [routerLink]="['/register']">S'inscrire</a></p>
         <p>Mot de passe oublié? <a href="#">Récupération</a></p>
         <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
       </form>
     </div>
-  </div>
 </div>

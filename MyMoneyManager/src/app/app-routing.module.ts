@@ -12,6 +12,7 @@ import {HpPresentationComponent} from './home-page/hp-presentation/hp-presentati
 import {HpContactComponent} from './home-page/hp-contact/hp-contact.component';
 import {HpConnectionComponent} from './home-page/hp-connection/hp-connection.component';
 import {AuthGuard} from './_helpers/auth.guard';
+import {HpRegisterComponent} from './home-page/hp-register/hp-register.component';
 
 const routes: Routes = [{
     path: 'sandbox',
@@ -59,6 +60,10 @@ const routes: Routes = [{
   {
     path: 'connection',
     component: HpConnectionComponent,
+  },
+  {
+    path: 'register',
+    component: HpRegisterComponent,
   },
 ];
 
