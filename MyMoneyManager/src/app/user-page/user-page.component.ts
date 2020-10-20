@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthentificationService} from '../_services/authentification.service';
 
 @Component({
   selector: 'app-user-page',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-page.component.css']
 })
 export class UserPageComponent implements OnInit {
+  userFirstName: string;
 
-  constructor() { }
+  constructor(private authentificationService: AuthentificationService) { }
 
   ngOnInit(): void {
+    this.userFirstName = this.authentificationService.currentUserValue.firstName;
   }
 
 }

@@ -53,7 +53,7 @@ export class HpConnectionComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.router.navigate(['user/dashboard']);
+          this.router.navigate(['user']);
         },
         error => {
           this.alertService.error(error, {autoClose: true, keepAfterRouteChange: true});
