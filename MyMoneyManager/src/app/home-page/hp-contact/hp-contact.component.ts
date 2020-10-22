@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-hp-contact',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HpContactComponent implements OnInit {
 
-  constructor() { }
+  form:FormGroup = this.fb.group({
+    email:['',Validators.required],
+    name:['',Validators.required],
+    message:['',Validators.required]
+  })
+
+  constructor(private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  sendMessage() {
+
+  }
 }
