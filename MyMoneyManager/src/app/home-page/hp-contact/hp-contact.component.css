@@ -125,14 +125,14 @@ iframe {
 
 .contact1 {
   width: 100%;
-  min-height: 100%;
+  min-height: 0%;
   padding: 15px;
 
   background: #4D1F03;
-  background: -webkit-linear-gradient(left,#4D1F03, #BE894A);
-  background: -o-linear-gradient(left, #4D1F03, #BE894A);
-  background: -moz-linear-gradient(left, #4D1F03, #BE894A);
-  background: linear-gradient(left, #4D1F03, #BE894A);
+  background: -webkit-linear-gradient(to left,#4D1F03, #BE894A);
+  background: -o-linear-gradient(to left, #4D1F03, #BE894A);
+  background: -moz-linear-gradient(to left, #4D1F03, #BE894A);
+  background: linear-gradient(to left, #4D1F03, #BE894A);
 
   display: -webkit-box;
   display: -webkit-flex;
