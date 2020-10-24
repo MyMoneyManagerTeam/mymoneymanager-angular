@@ -7,18 +7,38 @@
     <span class="navbar-brand">MyMoneyManager/Utilisateur</span>
     <ul class="nav navbar-nav mr-auto w-100 justify-content-end">
       <li class="nav-item">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLinkActive="active" [routerLink]="['/user/dashboard']">Dashboard</a>
+        <button mat-button aria-label="Dashboard" class="text-white" routerLinkActive="text-primary" [routerLink]="['/user/dashboard']">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </button>
       </li>
       <li>
         <div class="btn-group" dropdown placement="bottom right">
+          <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="MenuButton">
+            <mat-icon style="color:whitesmoke">more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLinkActive="text-primary" [routerLink]="['/user/settings']">
+              <mat-icon>settings</mat-icon>
+              <span>Settings</span>
+            </button>
+            <button mat-menu-item routerLinkActive="text-primary" [routerLink]="['/user/profile']">
+              <mat-icon>account_circle</mat-icon>
+              <span>Profile</span>
+            </button>
+            <button mat-menu-item routerLinkActive="text-primary" [routerLink]="['/user/help']">
+              <mat-icon>help</mat-icon>
+              <span>Help</span>
+            </button>
+            <button mat-menu-item (click)="logout()">
+              <mat-icon>power_settings_new</mat-icon>
+              <span>Logout</span>
+            </button>
+          </mat-menu>
 
-          <a id="button-animated" dropdownToggle type="button" class="nav-link dropdown-toggle" aria-controls="dropdown-animated">
+          <!--<a id="button-animated" dropdownToggle type="button" class="nav-link dropdown-toggle" aria-controls="dropdown-animated">
             <span class="caret"></span>
           </a>
           <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right bg-dark" role="menu" aria-labelledby="button-animated">
@@ -34,7 +54,7 @@
             <li role="menuitem">
               <a class="dropdown-item text-white" (click)="logout()">Logout</a>
             </li>
-          </ul>
+          </ul>-->
         </div>
       </li>
     </ul>

@@ -1,3 +1,6 @@
 .dropdown-item:hover {
   background-color: darkblue;
 }
+.navbar {
+  z-index: 999;
+}

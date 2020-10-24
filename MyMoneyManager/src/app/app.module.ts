@@ -34,6 +34,9 @@ import { HpRegisterComponent } from './home-page/hp-register/hp-register.compone
 import { NotFoundComponent } from './global-components/not-found/not-found.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -71,6 +74,9 @@ import {MatSelectModule} from '@angular/material/select';
     HttpClientModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
