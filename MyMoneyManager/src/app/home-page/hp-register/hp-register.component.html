@@ -3,14 +3,14 @@
     <form [formGroup]="form" class="form-signin" (ngSubmit)="register()">
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
-      <input type="email" formControlName="email" placeholder="Email" class="form-control"/>
-      <input type="password" formControlName="password"  placeholder="Mot de passe" class="form-control"/>
-      <input type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" class="form-control"/>
+      <input type="email" formControlName="email" placeholder="Email" [ngClass]="{invalid : isMailInvalid()}" class="form-control"/>
+      <input type="password" formControlName="password"  placeholder="Mot de passe" [ngClass]="{invalid : isPasswordInvalid()}" class="form-control"/>
+      <input type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" [ngClass]="{invalid : isConfirmPasswordInvalid()}" class="form-control"/>
       <div class="input-group">
         <input style="width: 50px" type="text" id="partTel" placeholder="+32" [value]="getDialCode()" readonly>
-        <input type="number" formControlName="tel"  placeholder="Telephone" class="form-control"/>
+        <input type="number" formControlName="tel"  placeholder="Telephone" [ngClass]="{invalid : isTelInvalid()}" class="form-control"/>
       </div>
-      <select id="pays" name="country" formControlName="pays" class="form-control">
+      <select id="pays" name="country" formControlName="pays" [ngClass]="{invalid : isPaysInvalid()}" class="form-control">
         <option *ngFor="let country of countryList" [value]="country.name">{{country.name}}</option>
       </select>
       <!--
@@ -22,10 +22,10 @@
       </mat-form-field>    -->
 
 
-      <input type="text" formControlName="adresse" placeholder="Adresse" class="form-control"/>
+      <input type="text" formControlName="adresse" placeholder="Adresse" [ngClass]="{invalid : isAdresseInvalid()}" class="form-control"/>
       <div class="input-group">
-        <input type="number" formControlName="codePostal" placeholder="Code postal" class="form-control"/>
-        <input type="text" formControlName="ville" placeholder="Ville" class="form-control"/>
+        <input type="number" formControlName="codePostal" placeholder="Code postal" [ngClass]="{invalid : isCodePostalInvalid()}" class="form-control"/>
+        <input type="text" formControlName="ville" placeholder="Ville" [ngClass]="{invalid : isVilleInvalid()}" class="form-control"/>
       </div>
       <div class="checkbox mb-3">
         <label>

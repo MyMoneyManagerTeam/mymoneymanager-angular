@@ -13,14 +13,23 @@ export class HpRegisterComponent implements OnInit {
   dialCode = '+32';
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
+    // tslint:disable-next-line:label-position
     FormBuilder: this.form = this.fb.group({
       email: ['', [
         Validators.required,
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]
+        Validators.pattern('(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])')
+      ]
       ],
       password: ['', [
         Validators.required,
-        Validators.minLength(6)]
+        Validators.pattern('^(((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])){3}|((?=.*\\d)(?=.*[a-z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])){3}|((?=.*\\d)(?=.*[a-z])(?=.*[\u0080-\uffff])){3}|((?=.*\\d)(?=.*[A-Z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])){3}|((?=.*\\d)(?=.*[A-Z])(?=.*[\u0080-\uffff])){3}|((?=.*\\d)(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])(?=.*[\u0080-\uffff])){3}|((?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])){3}|((?=.*[a-z])(?=.*[A-Z])(?=.*[\u0080-\uffff])){3}|((?=.*[a-z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])(?=.*[\u0080-\uffff])){3}|((?=.*[A-Z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])(?=.*[\u0080-\uffff])){3}).{8,}$')
+        /*Doit faire mini 8 carac et doit satisfaire 3 de ces catégories:
+        * Mini 1 [A-Z]
+        * Mini 1 [a-z]
+        * Mini 1 [0-9]
+        * Un caractère non alphanum
+        * Un caractère unicode*/
+        ]
       ],
       confirmPassword: ['', Validators.required],
       tel: ['', Validators.required],
@@ -40,8 +49,34 @@ export class HpRegisterComponent implements OnInit {
     console.log(this.countryList.filter( data => data.name === this.form.controls.pays.value));
   }
 
-  register() {
+  isMailInvalid(): boolean {
+    return this.form.controls.email.invalid && this.form.controls.email.touched;
+  }
+  isPasswordInvalid(): boolean {
+    return this.form.controls.password.invalid && this.form.controls.password.touched;
+  }
+  isConfirmPasswordInvalid(): boolean {
+    return this.form.controls.confirmPassword.touched &&
+      (this.form.controls.confirmPassword.value !== this.form.controls.password.value);
+  }
+  isTelInvalid(): boolean {
+    return this.form.controls.tel.invalid && this.form.controls.tel.touched;
+  }
+  isPaysInvalid(): boolean {
+    return this.form.controls.pays.invalid && this.form.controls.pays.touched;
+  }
+  isAdresseInvalid(): boolean {
+    return this.form.controls.adresse.invalid && this.form.controls.adresse.touched;
+  }
+  isCodePostalInvalid(): boolean {
+    return this.form.controls.codePostal.invalid && this.form.controls.codePostal.touched;
+  }
+  isVilleInvalid(): boolean {
+    return this.form.controls.ville.invalid && this.form.controls.ville.touched;
+  }
 
+  register(): boolean {
+    return false;
   }
 
   loadJSON(): void { // lire des fichiers Json est bug
@@ -1278,4 +1313,6 @@ export class HpRegisterComponent implements OnInit {
   getDialCode(): string {
     return (this.countryList.filter( data => data.name === this.form.controls.pays.value)[0]).Dial_Code;
   }
+
+
 }
