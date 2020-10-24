@@ -32,6 +32,8 @@ import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
 import { HpRegisterComponent } from './home-page/hp-register/hp-register.component';
 import { NotFoundComponent } from './global-components/not-found/not-found.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -67,6 +69,8 @@ import { NotFoundComponent } from './global-components/not-found/not-found.compo
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
