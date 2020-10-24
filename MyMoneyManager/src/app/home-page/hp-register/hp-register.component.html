@@ -4,7 +4,7 @@
       <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
       <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
       <input type="email" formControlName="email" placeholder="Email" [ngClass]="{invalid : isMailInvalid()}" class="form-control"/>
-      <input type="password" formControlName="password"  placeholder="Mot de passe" [ngClass]="{invalid : isPasswordInvalid()}" class="form-control"/>
+      <input type="password" matTooltip="tooltip password" matTooltipPosition="right" aria-tooltip="Aria tooltip password" formControlName="password"  placeholder="Mot de passe" [ngClass]="{invalid : isPasswordInvalid()}" class="form-control"/>
       <input type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" [ngClass]="{invalid : isConfirmPasswordInvalid()}" class="form-control"/>
       <div class="input-group">
         <input style="width: 50px" type="text" id="partTel" placeholder="+32" [value]="getDialCode()" readonly>

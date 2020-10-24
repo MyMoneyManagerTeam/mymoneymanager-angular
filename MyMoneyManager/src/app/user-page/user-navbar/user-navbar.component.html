@@ -4,20 +4,20 @@
   </button>
 
   <div class="collapse navbar-collapse just" [collapse]="isCollapsed" [isAnimated]="true">
-    <span class="navbar-brand">MyMoneyManager/Utilisateur</span>
+    <span class="navbar-brand" [routerLink]="['/home/index']">MyMoneyManager</span>
     <ul class="nav navbar-nav mr-auto w-100 justify-content-end">
       <li class="nav-item">
       </li>
       <li class="nav-item">
         <button mat-button aria-label="Dashboard" class="text-white" routerLinkActive="text-primary" [routerLink]="['/user/dashboard']">
-          <mat-icon>dashboard</mat-icon>
+          <mat-icon fontSet="material-icons-round">dashboard</mat-icon>
           <span>Dashboard</span>
         </button>
       </li>
       <li>
         <div class="btn-group" dropdown placement="bottom right">
           <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="MenuButton">
-            <mat-icon style="color:whitesmoke">more_vert</mat-icon>
+            <mat-icon [matBadge]="" matBadgeColor="warn" style="color:whitesmoke">more_vert</mat-icon>
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item routerLinkActive="text-primary" [routerLink]="['/user/settings']">
@@ -37,24 +37,6 @@
               <span>Logout</span>
             </button>
           </mat-menu>
-
-          <!--<a id="button-animated" dropdownToggle type="button" class="nav-link dropdown-toggle" aria-controls="dropdown-animated">
-            <span class="caret"></span>
-          </a>
-          <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu dropdown-menu-right bg-dark" role="menu" aria-labelledby="button-animated">
-            <li role="menuitem">
-              <a class="dropdown-item text-white" routerLinkActive="bg-primary" [routerLink]="['/user/settings']">Settings</a>
-            </li>
-            <li role="menuitem">
-              <a class="dropdown-item text-white" routerLinkActive="bg-primary" [routerLink]="['/user/profile']">Profile</a>
-            </li>
-            <li role="menuitem">
-              <a class="dropdown-item text-white" routerLinkActive="bg-primary" [routerLink]="['/user/help']">Help</a>
-            </li>
-            <li role="menuitem">
-              <a class="dropdown-item text-white" (click)="logout()">Logout</a>
-            </li>
-          </ul>-->
         </div>
       </li>
     </ul>

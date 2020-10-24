@@ -125,7 +125,7 @@ iframe {
 
 .contact1 {
   width: 100%;
-  min-height: 0%;
+  height: calc(100vh - var(--navbar-height)); /* 100vh => 100% viewport => pixel */
   padding: 15px;
 
   background: #4D1F03;

@@ -12,14 +12,6 @@ export class UserNavbarComponent implements OnInit {
 
   constructor(private authentificationService: AuthentificationService, private alertService: AlertService) { }
 
-  @HostListener('window:beforeunload', ['$event']) unloadHandler(event: Event): void {
-    const result = confirm('Les changements apportés pourraient ne pas être sauvegardés.');
-    if (result) {
-      event.returnValue = true;
-    }
-    event.returnValue = false; // on reste sur la page
-  }
-
   ngOnInit(): void {
   }
 

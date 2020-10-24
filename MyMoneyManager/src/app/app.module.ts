@@ -37,6 +37,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -76,7 +78,9 @@ import {MatIconModule} from '@angular/material/icon';
     MatSelectModule,
     MatButtonModule,
     MatMenuModule,
-    MatIconModule
+    MatIconModule,
+    MatTooltipModule,
+    MatBadgeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
