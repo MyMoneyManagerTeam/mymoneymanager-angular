@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll() {
+  getAll(): any {
     return this.httpClient.get<User[]>(`${environment.apiUrl}/users`);
   }
 }

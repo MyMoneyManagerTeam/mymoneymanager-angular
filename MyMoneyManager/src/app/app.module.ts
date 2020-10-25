@@ -25,7 +25,6 @@ import { HpContactComponent } from './home-page/hp-contact/hp-contact.component'
 import { HpConnectionComponent } from './home-page/hp-connection/hp-connection.component';
 import { HpNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
 import { AlertComponent } from './global-components/alert/alert.component';
-import {FakeBackendProvider} from './_helpers/fake-backend.interceptor';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
@@ -85,7 +84,6 @@ import {MatBadgeModule} from '@angular/material/badge';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    FakeBackendProvider
   ],
   bootstrap: [AppComponent]
 })

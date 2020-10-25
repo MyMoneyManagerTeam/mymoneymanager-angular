@@ -1,9 +1,9 @@
 export class User {
   id: number;
-  username: string;
+  mail: string;
   password: string;
   firstName: string;
   lastName: string;
-  lastLogin: string;
+  account: string;
   token?: string;
 }
