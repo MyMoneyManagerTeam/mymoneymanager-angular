@@ -1,41 +1,89 @@
-<div class="col-md-6 offset-md-3 mt-5 not-selectable">
-  <div class="card" id="bodlike">
-    <form [formGroup]="form" class="form-signin" (ngSubmit)="register()">
-      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-      <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
-      <input type="email" formControlName="email" placeholder="Email" [ngClass]="{invalid : isMailInvalid()}" class="form-control"/>
-      <input type="password" matTooltip="tooltip password" matTooltipPosition="right" aria-tooltip="Aria tooltip password" formControlName="password"  placeholder="Mot de passe" [ngClass]="{invalid : isPasswordInvalid()}" class="form-control"/>
-      <input type="password" formControlName="confirmPassword" placeholder="Confirmer le mot de passe" [ngClass]="{invalid : isConfirmPasswordInvalid()}" class="form-control"/>
-      <div class="input-group">
-        <input style="width: 50px" type="text" id="partTel" placeholder="+32" [value]="getDialCode()" readonly>
-        <input type="number" formControlName="tel"  placeholder="Telephone" [ngClass]="{invalid : isTelInvalid()}" class="form-control"/>
+<mat-horizontal-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup" errorMessage="Données incorrectes.">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Données de connexion</ng-template>
+      <div class="container col-5">
+        <div class="row justify-content-center">
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="mailCtrl" required>
+          </mat-form-field>
+        </div>
+        <div [formGroup]="firstFormGroup.controls.passwords" class="row justify-content-center">
+          <mat-form-field class="w-50">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" placeholder="mdp" formControlName="passwordCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="w-50">
+            <mat-label>Confirmez votre mot de passe</mat-label>
+            <input matInput type="password" placeholder="confMdp" formControlName="confirmPasswordCtrl" [errorStateMatcher]="matcher" required>
+            <mat-error *ngIf="firstFormGroup.controls.passwords.hasError('notSame')">
+              ERREUR SA MERE
+            </mat-error>
+          </mat-form-field>
+        </div>
       </div>
-      <select id="pays" name="country" formControlName="pays" [ngClass]="{invalid : isPaysInvalid()}" class="form-control">
-        <option *ngFor="let country of countryList" [value]="country.name">{{country.name}}</option>
-      </select>
-      <!--
-      <mat-form-field appearance="" class="form-control">
-        <mat-label >Pays</mat-label>
-        <mat-select formControlName="pays">
-          <mat-option *ngFor="let country of countryList" [value]="country.name">{{country.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>    -->
-
-
-      <input type="text" formControlName="adresse" placeholder="Adresse" [ngClass]="{invalid : isAdresseInvalid()}" class="form-control"/>
-      <div class="input-group">
-        <input type="number" formControlName="codePostal" placeholder="Code postal" [ngClass]="{invalid : isCodePostalInvalid()}" class="form-control"/>
-        <input type="text" formControlName="ville" placeholder="Ville" [ngClass]="{invalid : isVilleInvalid()}" class="form-control"/>
+      <div class="row justify-content-center">
+        <button mat-button matStepperNext>Suivant</button>
       </div>
-      <div class="checkbox mb-3">
-        <label>
-          <input type="checkbox" value="remember-me"> Se souvenir de moi
-        </label>
-      </div>
-      <input type="submit" class="btn btn-primary" value="Créer mon compte" [disabled]="form.invalid">
     </form>
-    <p>Déjà un compte? <a [routerLink]="['../connection']">Se connecter</a></p>
-    <p class="mt-5 mb-3 text-muted">&copy; 2020-2021</p>
-  </div>
-</div>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" errorMessage="Données incorrectes.">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Informations personnelles</ng-template>
+      <div class="container col-5">
+        <div class="row justify-content-center">
+          <mat-form-field class="w-50">
+            <mat-label>Nom</mat-label>
+            <input matInput placeholder="Nom" formControlName="nameCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="w-50">
+            <mat-label>Prénom</mat-label>
+            <input matInput placeholder="Prénom" formControlName="firstnameCtrl" required>
+          </mat-form-field>
+        </div>
+        <div class="row justify-content-center">
+          <mat-form-field class="w-50">
+            <mat-label>Pays</mat-label>
+            <input matInput placeholder="Pays" formControlName="countryCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="w-50">
+            <mat-label>Région</mat-label>
+            <input matInput placeholder="Région" formControlName="regionCtrl" required>
+          </mat-form-field>
+        </div>
+        <div class="row justify-content-center">
+          <mat-form-field class="w-100">
+            <mat-label>Adresse</mat-label>
+            <input matInput placeholder="Adresse" formControlName="addressCtrl" required>
+          </mat-form-field>
+        </div>
+        <div class="row justify-content-center">
+          <mat-form-field class="w-50">
+            <mat-label>Code postal</mat-label>
+            <input matInput placeholder="Code postal" formControlName="postalCodeCtrl" required>
+          </mat-form-field>
+          <mat-form-field class="w-50">
+            <mat-label>Ville</mat-label>
+            <input matInput placeholder="Ville" formControlName="cityCtrl" required>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button matStepperNext>Suivant</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Terminé</ng-template>
+    <div class="row justify-content-center">
+      <p>L'inscription est complète.</p>
+    </div>
+    <div class="row justify-content-center">
+      <button mat-button matStepperPrevious>Retour</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 

@@ -38,6 +38,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -79,7 +81,10 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatMenuModule,
     MatIconModule,
     MatTooltipModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

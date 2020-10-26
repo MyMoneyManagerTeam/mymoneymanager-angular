@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "MyMoneyManager"
+  "defaultProject": "MyMoneyManager",
+  "cli": {
+    "analytics": false
+  }
 }
