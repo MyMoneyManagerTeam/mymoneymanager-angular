@@ -1,1 +1,26 @@
-<p>profile works!</p>
+<div class="container col-lg-5">
+  <div class="row justify-content-center">
+    <div class="row col-5 justify-content-end">
+      <img width="60" height="60" [src]="getUser().picture"/>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-5 align-self-center">
+      <div class="row">
+      <button mat-raised-button color="primary"><mat-icon>publish_round</mat-icon> Upload une nouvelle image</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container col-10 justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col-2 border">
+      <h3>Prénom:</h3>
+      <span>{{getUser().firstName}}</span>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-2 border">
+      <h3>Nom:</h3>
+      <span>{{getUser().lastName}}</span>
+    </div>
+  </div>
+</div>

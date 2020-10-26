@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class AuthentificationService {
   private currentUserSubject: BehaviorSubject<User>;
-  public currentUser: Observable<User>;
+  private currentUser: Observable<User>;
 
   constructor(private httpClient: HttpClient, private router: Router) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
@@ -25,8 +25,11 @@ export class AuthentificationService {
   login(mail: string, password: string): any {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/auth/authenticate`, {Mail : mail, Password : password})
       .pipe(map(user => {
+        user.picture = 'data:image/jpeg;base64,' + user.picture;
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
+        console.log(user.picture);
+        console.log(this.currentUserValue);
         return user;
       }));
   }

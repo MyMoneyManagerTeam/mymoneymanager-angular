@@ -5,5 +5,6 @@ export class User {
   firstName: string;
   lastName: string;
   account: string;
+  picture: string | ArrayBuffer;
   token?: string;
 }
