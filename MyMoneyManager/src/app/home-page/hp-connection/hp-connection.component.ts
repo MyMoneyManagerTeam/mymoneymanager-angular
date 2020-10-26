@@ -49,7 +49,7 @@ export class HpConnectionComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authentificationService.login(this.f.username.value, this.f.password.value)
+    console.log(this.authentificationService.login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
         data => {
@@ -58,6 +58,6 @@ export class HpConnectionComponent implements OnInit {
         error => {
           this.alertService.error(error, {autoClose: true, keepAfterRouteChange: true});
           this.loading = false;
-        });
+        }));
   }
 }

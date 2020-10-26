@@ -28,8 +28,6 @@ export class AuthentificationService {
         user.picture = 'data:image/jpeg;base64,' + user.picture;
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-        console.log(user.picture);
-        console.log(this.currentUserValue);
         return user;
       }));
   }
@@ -38,5 +36,17 @@ export class AuthentificationService {
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     this.router.navigate(['/']);
+  }
+
+  signin(mail: string, password: string, firstname: string, lastname: string, country: string,
+         area: string, address: string, zipCode: number, city: string): any {
+    console.log({Mail : mail, Password : password, FirstName : firstname, LastName : lastname, Country : country,
+      Area : area, Address: address, ZipCode: zipCode, City : city});
+    return this.httpClient.post<any>(`${environment.apiUrl}/api/auth/signin`,
+      {Mail : mail, Password : password, FirstName : firstname, LastName : lastname, Country : country,
+        Area : area, Address: address, ZipCode: zipCode.toString(), City : city})
+      .pipe(map(msg => {
+        return msg;
+      }));
   }
 }

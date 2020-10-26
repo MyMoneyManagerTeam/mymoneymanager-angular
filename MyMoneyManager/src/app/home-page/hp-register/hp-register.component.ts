@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {STEPPER_GLOBAL_OPTIONS} from '@angular/cdk/stepper';
 import {ErrorStateMatcher} from '@angular/material/core';
+import {first} from 'rxjs/operators';
+import {AuthentificationService} from '../../_services/authentification.service';
+import {Router} from '@angular/router';
+import {AlertService} from '../../_services/alert.service';
 
 export class PasswordStateMatcher implements ErrorStateMatcher{
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,7 +30,13 @@ export class HpRegisterComponent implements OnInit {
   matcher = new PasswordStateMatcher();
   countryList: { name: string, Dial_Code: string, ISO_Code: string }[];
   dialCode = '+32';
-  constructor(private formBuilder: FormBuilder) {}
+  loading = false;
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthentificationService,
+    private router: Router,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.loadJSON();
@@ -41,7 +51,7 @@ export class HpRegisterComponent implements OnInit {
           Validators.pattern('^(((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])){3}|((?=.*\\d)(?=.*[a-z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])){3}|((?=.*\\d)(?=.*[a-z])(?=.*[\u0080-\uffff])){3}|((?=.*\\d)(?=.*[A-Z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])){3}|((?=.*\\d)(?=.*[A-Z])(?=.*[\u0080-\uffff])){3}|((?=.*\\d)(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])(?=.*[\u0080-\uffff])){3}|((?=.*[a-z])(?=.*[A-Z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])){3}|((?=.*[a-z])(?=.*[A-Z])(?=.*[\u0080-\uffff])){3}|((?=.*[a-z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])(?=.*[\u0080-\uffff])){3}|((?=.*[A-Z])(?=.*[!"#$%&\'()*+, \\-./:;<=>?@ [\\\\\\]^_`}|}~])(?=.*[\u0080-\uffff])){3}).{8,}$')
         ]],
         confirmPasswordCtrl: ['']
-      },{validators: this.checkPassword}),
+      }, {validators: this.checkPassword}),
     });
     this.secondFormGroup = this.formBuilder.group({
       nameCtrl: ['', Validators.required],
@@ -53,10 +63,40 @@ export class HpRegisterComponent implements OnInit {
       cityCtrl: ['', Validators.required],
     });
   }
+  submit(): void  {
+    if (this.firstFormGroup.invalid || this.secondFormGroup.invalid) {
+      return;
+    }
+
+    this.loading = true;
+    this.authService.signin(
+      this.firstFormGroup.controls.mailCtrl.value,
+      this.firstFormGroup.controls.passwords.get('passwordCtrl').value,
+      this.secondFormGroup.controls.firstnameCtrl.value,
+      this.secondFormGroup.controls.nameCtrl.value,
+      this.secondFormGroup.controls.countryCtrl.value,
+      this.secondFormGroup.controls.regionCtrl.value,
+      this.secondFormGroup.controls.addressCtrl.value,
+      this.secondFormGroup.controls.postalCodeCtrl.value,
+      this.secondFormGroup.controls.cityCtrl.value
+    )
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.alertService.success('Compte créé, veuillez valider votre compte avec votre lien d\'activation)',
+            {autoClose: true, keepAfterRouteChange: true});
+          //this.router.navigate(['user/dashboard']);
+        },
+        error => {
+          this.alertService.error(error, {autoClose: true, keepAfterRouteChange: true});
+          this.loading = false;
+        });
+    this.loading = false;
+  }
 
   checkPassword(group: FormGroup){
-    let password = group.controls.passwordCtrl.value;
-    let confirmPassword = group.controls.confirmPasswordCtrl.value;
+    const password = group.controls.passwordCtrl.value;
+    const confirmPassword = group.controls.confirmPasswordCtrl.value;
 
     return password === confirmPassword ? null : {notSame: true};
   }
@@ -1291,5 +1331,4 @@ export class HpRegisterComponent implements OnInit {
     ];
 
   }
-
 }

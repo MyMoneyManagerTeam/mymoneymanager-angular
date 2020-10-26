@@ -5,3 +5,10 @@ body{
 mat-form-field{
   padding: 10px;
 }
+.spinner-container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}

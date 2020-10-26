@@ -29,6 +29,15 @@
 }
 a { cursor: pointer }
 
+button:focus, button:active:focus, button.active:focus { /* utilisé pour desactiver la frame quand focus sur un bouton pour angular mat, le css de bootstrap l'override*/
+  outline: none !important;
+  outline-style: none !important;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.vh-minus-navbar {
+  height: calc(100vh - var(--navbar-height)); /* 100vh => 100% viewport => pixel */
+}
 

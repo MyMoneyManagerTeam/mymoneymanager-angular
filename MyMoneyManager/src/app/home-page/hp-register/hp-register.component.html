@@ -1,3 +1,8 @@
+<div class="spinner-container" *ngIf="this.loading">
+  <div class="h-75 row align-items-center justify-content-center">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
 <mat-horizontal-stepper #stepper>
   <mat-step [stepControl]="firstFormGroup" errorMessage="Données incorrectes.">
     <form [formGroup]="firstFormGroup">
@@ -18,7 +23,7 @@
             <mat-label>Confirmez votre mot de passe</mat-label>
             <input matInput type="password" placeholder="confMdp" formControlName="confirmPasswordCtrl" [errorStateMatcher]="matcher" required>
             <mat-error *ngIf="firstFormGroup.controls.passwords.hasError('notSame')">
-              ERREUR SA MERE
+              Le mot de passe est différent
             </mat-error>
           </mat-form-field>
         </div>
@@ -82,7 +87,7 @@
     </div>
     <div class="row justify-content-center">
       <button mat-button matStepperPrevious>Retour</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
+      <button mat-button color="primary" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid" (click)="submit()">S'inscrire</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>
