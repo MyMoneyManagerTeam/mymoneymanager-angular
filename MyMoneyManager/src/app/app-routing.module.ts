@@ -14,6 +14,11 @@ import {AuthGuard} from './_helpers/auth.guard';
 import {HpRegisterComponent} from './home-page/hp-register/hp-register.component';
 import {NotFoundComponent} from './global-components/not-found/not-found.component';
 import {HomePageComponent} from './home-page/home-page.component';
+import {SummaryComponent} from './user-page/dashboard/summary/summary.component';
+import {JarsComponent} from './user-page/dashboard/jars/jars.component';
+import {ManageComponent} from './user-page/dashboard/manage/manage.component';
+import {ConsultComponent} from './user-page/dashboard/consult/consult.component';
+import {SimulationComponent} from './user-page/dashboard/simulation/simulation.component';
 
 const routes: Routes = [{
     path: 'sandbox',
@@ -31,6 +36,35 @@ const routes: Routes = [{
       {
         path: 'dashboard',
         component: DashboardComponent,
+        children:[
+          {
+            path:'',
+            component: SummaryComponent
+          },
+          {
+            path:'summary',
+            component:SummaryComponent
+          },
+          {
+            path:'jars',
+            component:JarsComponent
+          },
+          {
+            path:'manage',
+            component: ManageComponent
+          },
+          {
+            path:'consult',
+            component: ConsultComponent
+          },
+          {
+            path:'simulation',
+            component:SimulationComponent
+          },
+          {
+            path:'', redirectTo:'summary',pathMatch:'full'
+          }
+        ]
       },
       {
         path: 'settings',

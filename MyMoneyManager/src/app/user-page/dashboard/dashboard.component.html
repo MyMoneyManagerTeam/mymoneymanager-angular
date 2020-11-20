@@ -1,1 +1,11 @@
-<p>dashboard works!</p>
+<div class="sidenav">
+  <a [routerLink]="['summary']">Synthèse</a>
+  <a [routerLink]="['jars']">Espace(s)</a>
+  <a [routerLink]="['manage']">Gérer</a>
+  <a [routerLink]="['consult']">Consulter</a>
+  <a [routerLink]="['simulation']">Simulation</a>
+</div>
+<div class="dashBoardContainer">
+  <router-outlet></router-outlet>
+</div>
+

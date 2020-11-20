@@ -41,6 +41,11 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { SummaryComponent } from './user-page/dashboard/summary/summary.component';
+import { JarsComponent } from './user-page/dashboard/jars/jars.component';
+import { ManageComponent } from './user-page/dashboard/manage/manage.component';
+import { ConsultComponent } from './user-page/dashboard/consult/consult.component';
+import { SimulationComponent } from './user-page/dashboard/simulation/simulation.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +69,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AlertComponent,
     HpRegisterComponent,
     NotFoundComponent,
+    SummaryComponent,
+    JarsComponent,
+    ManageComponent,
+    ConsultComponent,
+    SimulationComponent,
   ],
   imports: [
     BrowserModule,
