@@ -38,13 +38,10 @@ export class AuthentificationService {
     this.router.navigate(['/']);
   }
 
-  signin(mail: string, password: string, firstname: string, lastname: string, country: string,
-         area: string, address: string, zipCode: number, city: string): any {
-    console.log({Mail : mail, Password : password, FirstName : firstname, LastName : lastname, Country : country,
-      Area : area, Address: address, ZipCode: zipCode, City : city});
+  signin(user: User): any {
+    console.log(JSON.stringify(user));
     return this.httpClient.post<any>(`${environment.apiUrl}/api/auth/signin`,
-      {Mail : mail, Password : password, FirstName : firstname, LastName : lastname, Country : country,
-        Area : area, Address: address, ZipCode: zipCode.toString(), City : city})
+      user)
       .pipe(map(msg => {
         return msg;
       }));

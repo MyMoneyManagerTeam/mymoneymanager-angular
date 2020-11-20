@@ -29,7 +29,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {JwtInterceptor} from './_helpers/jwt.interceptor';
 import {ErrorInterceptor} from './_helpers/error.interceptor';
-import { HpRegisterComponent } from './home-page/hp-register/hp-register.component';
+import {HpRegisterComponent, SafeUrlPipe} from './home-page/hp-register/hp-register.component';
 import { NotFoundComponent } from './global-components/not-found/not-found.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -46,6 +46,7 @@ import { JarsComponent } from './user-page/dashboard/jars/jars.component';
 import { ManageComponent } from './user-page/dashboard/manage/manage.component';
 import { ConsultComponent } from './user-page/dashboard/consult/consult.component';
 import { SimulationComponent } from './user-page/dashboard/simulation/simulation.component';
+import {MaterialFileInputModule} from 'ngx-material-file-input';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { SimulationComponent } from './user-page/dashboard/simulation/simulation
     ManageComponent,
     ConsultComponent,
     SimulationComponent,
+    SafeUrlPipe
   ],
   imports: [
     BrowserModule,
@@ -96,7 +98,8 @@ import { SimulationComponent } from './user-page/dashboard/simulation/simulation
     MatStepperModule,
     MatFormFieldModule,
     MatInputModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MaterialFileInputModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

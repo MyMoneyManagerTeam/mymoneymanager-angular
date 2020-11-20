@@ -73,6 +73,19 @@
             <input matInput placeholder="Ville" formControlName="cityCtrl" required>
           </mat-form-field>
         </div>
+        <div class="row justify-content-center">
+          <mat-form-field class="w-50">
+
+            <mat-label><mat-icon>folder</mat-icon> Votre image de profile:</mat-label>
+            <ngx-mat-file-input accept="image/*" formControlName="imageCtrl" (change)="getSrc()"></ngx-mat-file-input>
+
+          </mat-form-field>
+          <div class="w-50">
+            <div class="row justify-content-center" *ngIf="this.imagesrc">
+              <img height="200" width="auto" [src]="imagesrc | safeResourceUrl">
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row justify-content-center">
         <button mat-button matStepperPrevious>Retour</button>
@@ -83,7 +96,9 @@
   <mat-step>
     <ng-template matStepLabel>Terminé</ng-template>
     <div class="row justify-content-center">
-      <p>L'inscription est complète.</p>
+      <div>
+        <p>L'inscription est complète.</p>
+      </div>
     </div>
     <div class="row justify-content-center">
       <button mat-button matStepperPrevious>Retour</button>
