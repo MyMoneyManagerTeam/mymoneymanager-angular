@@ -47,6 +47,10 @@ import { ManageComponent } from './user-page/dashboard/manage/manage.component';
 import { ConsultComponent } from './user-page/dashboard/consult/consult.component';
 import { SimulationComponent } from './user-page/dashboard/simulation/simulation.component';
 import {MaterialFileInputModule} from 'ngx-material-file-input';
+import { JarsListComponent } from './user-page/dashboard/jars/jars-list/jars-list.component';
+import { JarsFormComponent } from './user-page/dashboard/jars/jars-form/jars-form.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -75,7 +79,9 @@ import {MaterialFileInputModule} from 'ngx-material-file-input';
     ManageComponent,
     ConsultComponent,
     SimulationComponent,
-    SafeUrlPipe
+    SafeUrlPipe,
+    JarsListComponent,
+    JarsFormComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +105,9 @@ import {MaterialFileInputModule} from 'ngx-material-file-input';
     MatFormFieldModule,
     MatInputModule,
     MatProgressSpinnerModule,
-    MaterialFileInputModule
+    MaterialFileInputModule,
+    MatCardModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

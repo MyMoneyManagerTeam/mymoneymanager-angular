@@ -1,30 +1,25 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JarsComponent } from './jars.component';
+import { JarsListComponent } from './jars-list.component';
 
-// @ts-ignore
-describe('JarsComponent', () => {
-  let component: JarsComponent;
-  let fixture: ComponentFixture<JarsComponent>;
+describe('JarsListComponent', () => {
+  let component: JarsListComponent;
+  let fixture: ComponentFixture<JarsListComponent>;
 
-  // @ts-ignore
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JarsComponent ]
+      declarations: [ JarsListComponent ]
     })
     .compileComponents();
   });
 
-  // @ts-ignore
   beforeEach(() => {
-    fixture = TestBed.createComponent(JarsComponent);
+    fixture = TestBed.createComponent(JarsListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  // @ts-ignore
   it('should create', () => {
-    // @ts-ignore
     expect(component).toBeTruthy();
   });
 });
