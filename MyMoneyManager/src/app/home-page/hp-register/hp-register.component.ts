@@ -27,6 +27,7 @@ export class PasswordStateMatcher implements ErrorStateMatcher{
   }]
 })
 export class HpRegisterComponent implements OnInit {
+  private selectedFile = null;
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthentificationService,
@@ -71,7 +72,6 @@ export class HpRegisterComponent implements OnInit {
     if (this.firstFormGroup.invalid || this.secondFormGroup.invalid) {
       return;
     }
-
     this.loading = true;
     this.authService.signin({
         mail: this.firstFormGroup.controls.mailCtrl.value,
@@ -81,9 +81,9 @@ export class HpRegisterComponent implements OnInit {
         country: this.secondFormGroup.controls.countryCtrl.value,
         area: this.secondFormGroup.controls.regionCtrl.value,
         address: this.secondFormGroup.controls.addressCtrl.value,
-        zip: this.secondFormGroup.controls.postalCodeCtrl.value.parseInt(),
+        zip: this.secondFormGroup.controls.postalCodeCtrl.value,
         city: this.secondFormGroup.controls.cityCtrl.value,
-        picture: this.secondFormGroup.controls.imageCtrl.value ? this.secondFormGroup.controls.imageCtrl.value.files[0] : null
+        picture: this.selectedFile
       }
     )
       .pipe(first())
@@ -91,7 +91,6 @@ export class HpRegisterComponent implements OnInit {
         data => {
           this.alertService.success('Compte créé, veuillez valider votre compte avec votre lien d\'activation)',
             {autoClose: true, keepAfterRouteChange: true});
-          // this.router.navigate(['user/dashboard']);
         },
         error => {
           this.alertService.error(error, {autoClose: true, keepAfterRouteChange: true});
@@ -114,12 +113,21 @@ export class HpRegisterComponent implements OnInit {
     }
     const reader = this.secondFormGroup.controls.imageCtrl.value.files[0].stream().getReader();
     this.secondFormGroup.controls.imageCtrl.value.files[0].arrayBuffer().then(value => {
-      let arrayBufferView = new Uint8Array(value);
-      let blob = new Blob([arrayBufferView], {type: 'image' } );
-      let urlCreator = window.URL || window.webkitURL;
-      let imageUrl = urlCreator.createObjectURL(blob);
+      const arrayBufferView = new Uint8Array(value);
+      const blob = new Blob([arrayBufferView], {type: 'image' } );
+      const urlCreator = window.URL || window.webkitURL;
+      const imageUrl = urlCreator.createObjectURL(blob);
       this.imagesrc = imageUrl;
     });
+  }
+
+  onSelectedFile(event): void {
+    if (event.target.files.length > 0) {
+      this.selectedFile = (event.target.files[0] as File);
+    }
+    else {
+      this.selectedFile = null;
+    }
   }
 }
 @Pipe({ name: 'safeResourceUrl' })

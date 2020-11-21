@@ -66,7 +66,7 @@
         <div class="row justify-content-center">
           <mat-form-field class="w-50">
             <mat-label>Code postal</mat-label>
-            <input matInput placeholder="Code postal" formControlName="postalCodeCtrl" required>
+            <input matInput type="number" placeholder="Code postal" formControlName="postalCodeCtrl" required>
           </mat-form-field>
           <mat-form-field class="w-50">
             <mat-label>Ville</mat-label>
@@ -74,12 +74,12 @@
           </mat-form-field>
         </div>
         <div class="row justify-content-center">
-          <mat-form-field class="w-50">
+          <div class="w-100">
 
             <mat-label><mat-icon>folder</mat-icon> Votre image de profile:</mat-label>
-            <ngx-mat-file-input accept="image/*" formControlName="imageCtrl" (change)="getSrc()"></ngx-mat-file-input>
+            <input type="file" accept="image/*" name="image" (change)="onSelectedFile($event)">
 
-          </mat-form-field>
+          </div>
           <div class="w-50">
             <div class="row justify-content-center" *ngIf="this.imagesrc">
               <img height="200" width="auto" [src]="imagesrc | safeResourceUrl">

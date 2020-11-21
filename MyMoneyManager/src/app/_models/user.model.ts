@@ -9,7 +9,7 @@ export class User {
   address: string;
   zip: number;
   city: string;
-  picture: string | ArrayBuffer;
+  picture: string | Blob;
   confirmed?: boolean;
   admin?: boolean;
   token?: string;

@@ -125,12 +125,14 @@ export class AppRoutingModule {
   private routeEvent(router: Router): void {
     router.events.subscribe(e => {
       if (e instanceof NavigationStart) {
-        console.log(e);
         if (e.url.includes('/home') && !e.url.includes('/home/')) {
           router.navigate(['/home/index']);
         }
         if (e.url.includes('/user') && !e.url.includes('/user/')) {
-          router.navigate(['/user/dashboard']);
+          router.navigate(['/user/dashboard/summary']);
+        }
+        if (e.url.includes('/dashboard') && !e.url.includes('/dashboard/')) {
+          router.navigate(['/user/dashboard/summary']);
         }
       }
     });

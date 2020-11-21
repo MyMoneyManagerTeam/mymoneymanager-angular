@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../_models/user.model';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 import {map} from 'rxjs/operators';
 import {Router} from '@angular/router';
@@ -38,12 +38,32 @@ export class AuthentificationService {
     this.router.navigate(['/']);
   }
 
+  uploadImage(image: File, jwt: string): any {
+    const formData: FormData = new FormData();
+    formData.append('picture', image);
+    return this.httpClient.post<any>(`${environment.apiUrl}/api/Auth/UploadImage`, formData, {
+      headers: new HttpHeaders({Authorization: `Bearer ${jwt}`
+      })
+    });
+  }
+
   signin(user: User): any {
-    console.log(JSON.stringify(user));
-    return this.httpClient.post<any>(`${environment.apiUrl}/api/auth/signin`,
-      user)
+    const formData: FormData = new FormData();
+    formData.append('picture', user.picture);
+    return this.httpClient.post<any>(`${environment.apiUrl}/api/Auth/Signin`, {
+      mail: user.mail,
+      password: user.password,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      country: user.country,
+      area: user.area,
+      address: user.address,
+      zip: user.zip,
+      city: user.city,
+      picture: null
+    })
       .pipe(map(msg => {
-        return msg;
+        this.uploadImage(user.picture as File, msg.token).subscribe(value => {}, error => console.log(error));
       }));
   }
 }
