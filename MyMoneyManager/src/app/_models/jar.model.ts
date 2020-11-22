@@ -1,6 +1,6 @@
 export interface Jar {
   id?: string;
-  owner: string;
+  owner?: string;
   description: string;
   name: string;
   max: number;

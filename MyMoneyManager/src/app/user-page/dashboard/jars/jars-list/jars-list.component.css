@@ -5,7 +5,15 @@
   text-align: center;
 }
 .jar-card {
-  max-width: 200px;
-  min-width: 200px;
+  max-width: 240px;
+  min-width: 240px;
   min-height: 100%;
+}
+.fixed-button {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+.bg-lightblue {
+  background-color: #ADD8E6;
 }

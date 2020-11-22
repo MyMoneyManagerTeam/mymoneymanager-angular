@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Supprimer un Jar</h1>
+<div mat-dialog-content>
+  <p>Voulez vous vraiment supprimer le Jar "<strong>{{data.name}}</strong>"</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Non, merci</button>
+  <button mat-button [mat-dialog-close]="'ok'" cdkFocusInitial>Oui</button>
+</div>

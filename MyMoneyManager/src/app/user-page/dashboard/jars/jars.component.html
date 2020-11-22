@@ -1,2 +1,2 @@
-<app-jars-list [jars]="this.jarsList"></app-jars-list>
+<app-jars-list [jars]="this.jarsList" (delete)="deleteJar($event)" (create)="createJar($event)" (update)="updateJar($event)"></app-jars-list>
 <app-jars-form></app-jars-form>

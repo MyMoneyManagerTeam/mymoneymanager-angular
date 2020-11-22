@@ -23,7 +23,6 @@ export class JarsComponent implements OnInit {
   loadJars(): void {
     this.jarService.query().subscribe(value => {
       this.jarsList = value;
-      console.log(this.jarsList);
     }, error => this.alertService.error('Impossible de charger les Jars'));
   }
   createJar(jar: Jar): void {

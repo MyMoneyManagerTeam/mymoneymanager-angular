@@ -1,3 +1,21 @@
+<mat-sidenav-container>
+  <mat-sidenav class="matsidebar not-selectable" #sidenav mode="side" opened [fixedInViewport]="true" [fixedTopGap]="60">
+    <ul>
+      <li [routerLink]="['summary']" routerLinkActive="text-white">Synthèse</li>
+      <li [routerLink]="['jars']" routerLinkActive="text-white">Espace(s)</li>
+      <li [routerLink]="['manage']" routerLinkActive="text-white">Gérer</li>
+      <li [routerLink]="['consult']" routerLinkActive="text-white">Consulter</li>
+      <li [routerLink]="['simulation']" routerLinkActive="text-white">Simulation</li>
+    </ul>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+<!--
 <div class="sidenav">
   <a [routerLink]="['summary']" routerLinkActive="text-white">Synthèse</a>
   <a [routerLink]="['jars']" routerLinkActive="text-white">Espace(s)</a>
@@ -8,4 +26,5 @@
 <div class="dashBoardContainer">
   <router-outlet></router-outlet>
 </div>
+-->
 

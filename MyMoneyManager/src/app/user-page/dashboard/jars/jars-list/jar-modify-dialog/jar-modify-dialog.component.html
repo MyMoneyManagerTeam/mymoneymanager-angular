@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Modifier un Jar</h1>
+<div mat-dialog-content>
+  <form>
+    <mat-form-field>
+      <mat-label>Nom</mat-label>
+      <input matInput maxlength="15" type="text" [(ngModel)]="data.name" name="name">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea matInput type="text" [(ngModel)]="data.description" name="description"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Montant</mat-label>
+      <input matInput type="number" min="0" [max]="data.max!==0?data.max:999999999" [(ngModel)]="data.balance" name="balance">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Montant maximum</mat-label>
+      <input matInput type="number" min="0" [(ngModel)]="data.max" name="max">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Fermer</button>
+</div>

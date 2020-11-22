@@ -51,6 +51,12 @@ import { JarsListComponent } from './user-page/dashboard/jars/jars-list/jars-lis
 import { JarsFormComponent } from './user-page/dashboard/jars/jars-form/jars-form.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { JarModifyDialogComponent } from './user-page/dashboard/jars/jars-list/jar-modify-dialog/jar-modify-dialog.component';
+import { JarDeleteDialogComponent } from './user-page/dashboard/jars/jars-list/jar-delete-dialog/jar-delete-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {ChartsModule} from 'ng2-charts';
+import { AccountChartsComponent } from './user-page/dashboard/summary/account-charts/account-charts.component';
+import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -81,7 +87,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     SimulationComponent,
     SafeUrlPipe,
     JarsListComponent,
-    JarsFormComponent
+    JarsFormComponent,
+    JarModifyDialogComponent,
+    JarDeleteDialogComponent,
+    AccountChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -107,7 +116,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatProgressSpinnerModule,
     MaterialFileInputModule,
     MatCardModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatDialogModule,
+    ChartsModule,
+    MatSidenavModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
