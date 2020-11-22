@@ -57,6 +57,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {ChartsModule} from 'ng2-charts';
 import { AccountChartsComponent } from './user-page/dashboard/summary/account-charts/account-charts.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
+import { AccountSummaryComponent } from './user-page/dashboard/summary/account-summary/account-summary.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
     JarsFormComponent,
     JarModifyDialogComponent,
     JarDeleteDialogComponent,
-    AccountChartsComponent
+    AccountChartsComponent,
+    AccountSummaryComponent
   ],
   imports: [
     BrowserModule,

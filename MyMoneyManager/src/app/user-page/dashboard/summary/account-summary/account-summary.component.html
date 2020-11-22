@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h2>Compte</h2>
+      <ul>
+        <li>Total: {{currentAccount.balance}}€</li>
+        <li>Total disponnible: {{currentAccount.availableBalance}}€</li>
+      </ul>
+    </div>
+    <div class="col-6">
+      <h2>Jars</h2>
+      <ul>
+        <li>Nombre de jars: {{jars.length}}</li>
+        <li>Total dans les jars: {{currentAccount.balance-currentAccount.availableBalance}}€</li>
+        <li>Nombre de goals atteints: {{getGoalCount()}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
