@@ -11,13 +11,12 @@
       </div>
     </div>
     <div class="col-lg-6 col-md-12">
+      {{this.doughnutChartColors}}
       <div style="display: block">
         <canvas baseChart
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
-                [options]="barChartOptions"
-                [legend]="barChartLegend"
-                [chartType]="barChartType"></canvas>
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType"></canvas>
       </div>
     </div>
   </div>

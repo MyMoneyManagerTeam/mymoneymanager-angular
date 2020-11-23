@@ -1,6 +1,6 @@
 <div>
-  <app-account-summary></app-account-summary>
+  <app-account-summary [jars]="this.jars" [currentAccount]="this.currentAccount"></app-account-summary>
 </div>
 <div>
-  <app-account-charts></app-account-charts>
+  <app-account-charts></app-account-charts><!-- Au final on utilise plus le databinding car bug de couleur avec ng2-charts-->
 </div>

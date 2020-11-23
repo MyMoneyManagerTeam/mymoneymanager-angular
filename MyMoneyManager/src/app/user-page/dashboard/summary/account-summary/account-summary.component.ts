@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {UserAccount} from '../../../../_models/account.model';
 import {Jars} from '../../../../_models/jar.model';
 import {JarService} from '../../../../_services/jar.service';
 import {AccountService} from '../../../../_services/account.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-account-summary',
@@ -11,18 +12,12 @@ import {AccountService} from '../../../../_services/account.service';
 })
 export class AccountSummaryComponent implements OnInit {
 
-  public currentAccount: UserAccount = {availableBalance: 0, balance: 0, id: ''};
-  public jars: Jars = [];
+  @Input() currentAccount: UserAccount = {availableBalance: 0, balance: 0, id: ''};
+  @Input() jars: Jars = [];
 
-  constructor(private jarService: JarService, private accountService: AccountService) { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-    this.jarService.query().subscribe(value => {
-      this.jars = value;
-    });
-    this.accountService.get().subscribe(value => {
-      this.currentAccount = value;
-    });
   }
 
   getGoalCount(): number {
@@ -32,5 +27,11 @@ export class AccountSummaryComponent implements OnInit {
       }
       return value.balance >= value.max;
     }).length;
+  }
+
+  copyString(): void {
+    this.snackBar.open('L\'Id a été copié dans le presse-papier', 'Ok', {
+      duration: 2000,
+    });
   }
 }

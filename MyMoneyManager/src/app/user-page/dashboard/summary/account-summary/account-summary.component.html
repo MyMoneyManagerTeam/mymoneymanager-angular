@@ -3,6 +3,9 @@
     <div class="col-6">
       <h2>Compte</h2>
       <ul>
+        <li (click)="copyString()" [cdkCopyToClipboard]="currentAccount.id">Id du compte:  <td><strong>{{currentAccount.id}} <button mat-icon-button color="primary" aria-label="Copier dans le presse-papier">
+          <mat-icon>content_copy</mat-icon>
+        </button></strong></td></li>
         <li>Total: {{currentAccount.balance}}€</li>
         <li>Total disponnible: {{currentAccount.availableBalance}}€</li>
       </ul>

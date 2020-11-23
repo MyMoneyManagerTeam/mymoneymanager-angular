@@ -58,6 +58,8 @@ import {ChartsModule} from 'ng2-charts';
 import { AccountChartsComponent } from './user-page/dashboard/summary/account-charts/account-charts.component';
 import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { AccountSummaryComponent } from './user-page/dashboard/summary/account-summary/account-summary.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -121,7 +123,9 @@ import { AccountSummaryComponent } from './user-page/dashboard/summary/account-s
     MatProgressBarModule,
     MatDialogModule,
     ChartsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ClipboardModule,
+    MatSnackBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
