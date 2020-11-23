@@ -34,7 +34,8 @@ button:focus, button:active:focus, button.active:focus { /* utilisé pour desact
   outline-style: none !important;
 }
 
-html, body { height: 100%; }
+html, body { height: 100%;
+  background-color: #fafafa}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .vh-minus-navbar {

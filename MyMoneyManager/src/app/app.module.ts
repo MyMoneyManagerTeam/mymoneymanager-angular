@@ -60,6 +60,9 @@ import {MatSidenav, MatSidenavModule} from '@angular/material/sidenav';
 import { AccountSummaryComponent } from './user-page/dashboard/summary/account-summary/account-summary.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { ConsultTableComponent } from './user-page/dashboard/consult/consult-table/consult-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -94,7 +97,8 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     JarModifyDialogComponent,
     JarDeleteDialogComponent,
     AccountChartsComponent,
-    AccountSummaryComponent
+    AccountSummaryComponent,
+    ConsultTableComponent
   ],
   imports: [
     BrowserModule,
@@ -125,7 +129,9 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     ChartsModule,
     MatSidenavModule,
     ClipboardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
