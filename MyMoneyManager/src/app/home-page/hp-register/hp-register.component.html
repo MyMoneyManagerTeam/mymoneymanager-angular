@@ -96,11 +96,6 @@
   <mat-step>
     <ng-template matStepLabel>Terminé</ng-template>
     <div class="row justify-content-center">
-      <div>
-        <p>L'inscription est complète.</p>
-      </div>
-    </div>
-    <div class="row justify-content-center">
       <button mat-button matStepperPrevious>Retour</button>
       <button mat-button color="primary" [disabled]="firstFormGroup.invalid || secondFormGroup.invalid" (click)="submit()">S'inscrire</button>
     </div>
