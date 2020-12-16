@@ -1,1 +1,10 @@
-<p>manage works!</p>
+
+<form [formGroup]="transaction_form" (ngSubmit)="createTransaction()">
+  <div class="form-group">
+    <label for="account_name">nom du compte: </label><input type="text" id="account_name" class="form-control" name="name_receiver" formControlName="name_receiver"/><br>
+    <label for="account_id">id du compte: </label><input type="text" id="account_id" class="form-control" name="id_receiver" formControlName="id_receiver"/><br>
+    <label for="account_somme">Somme à envoyé: </label><input type="number" id="account_somme" class="form-control" name="value_receiver" formControlName="value_receiver"/><br>
+    <label for="account_description">Description: </label><input type="text" id="account_description" class="form-control" name="description_receiver" formControlName="description_receiver"/><br>
+    <button type="submit" class="btn btn-primary" name="confirmer">confirmer</button>
+  </div>
+</form>

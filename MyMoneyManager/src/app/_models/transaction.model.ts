@@ -3,10 +3,10 @@ export interface Transaction {
   emitterId: string;
   receiverId: string;
   amount: number;
-  transactionDate: Date;
+  transactionDate: number;
   description: string;
   emitterName: string;
-  receiverName: number;
+  receiverName: string;
 }
 export declare type Transactions = Transaction[];
 export interface TransactionFromAPI {
