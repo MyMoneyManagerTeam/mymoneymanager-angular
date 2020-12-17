@@ -37,11 +37,13 @@ export class ManageComponent implements OnInit {
       receiverName: this.transaction_form.controls['name_receiver'].value
     }).subscribe(
       data => {
-        this.alertService.success('Transaction créé, veuillez valider votre compte avec votre lien d\'activation)',
-          {autoClose: true, keepAfterRouteChange: true});
+        this.alertService.success('Transaction réalisée',
+          {autoClose: true, keepAfterRouteChange: true}),
+        this.transaction_form.reset();
+
       },
       error => {
-        this.alertService.error(error, {autoClose: true, keepAfterRouteChange: true});
+        this.alertService.error('Transaction non valide', {autoClose: true, keepAfterRouteChange: true});
         this.loading = false;
       });
     this.loading = false;

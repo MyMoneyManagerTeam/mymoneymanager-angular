@@ -3,3 +3,8 @@ export interface UserAccount {
   balance: number;
   availableBalance: number;
 }
+
+export interface UserAccountToApi{
+  userId:string;
+  balance:number;
+}

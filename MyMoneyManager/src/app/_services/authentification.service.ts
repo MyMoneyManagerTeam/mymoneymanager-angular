@@ -22,6 +22,7 @@ export class AuthentificationService {
     return this.currentUserSubject.value;
   }
 
+
   login(mail: string, password: string): any {
     return this.httpClient.post<any>(`${environment.apiUrl}/api/auth/authenticate`, {Mail : mail, Password : password})
       .pipe(map(user => {

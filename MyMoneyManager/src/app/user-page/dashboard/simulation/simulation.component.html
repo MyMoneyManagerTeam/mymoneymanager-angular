@@ -1,1 +1,4 @@
-<p>simulation works!</p>
+<app-sim-list
+  [usersWithAccount]="this.usersWithAccount"
+  (balanceChanged)="updateBalance($event)"
+></app-sim-list>

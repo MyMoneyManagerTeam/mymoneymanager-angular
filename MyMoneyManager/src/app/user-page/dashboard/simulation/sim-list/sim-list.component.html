@@ -1,0 +1,28 @@
+<div class="formContainer">
+  <table class="table table-bordered table-hover shadow p-3 mb-5 bg-white rounded">
+    <thead class="thead">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">id</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Mail</th>
+      <th scope="col">Pays</th>
+      <th scope="col">Confirmé</th>
+      <th scope="col">Admin</th>
+      <th scope="col">Balance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of usersWithAccount; let index = index">
+      <td>{{index}}</td>
+      <td>{{user.id}}</td>
+      <td>{{user.lastName}}</td>
+      <td><input class="form-control" type="text" [(ngModel)]="user.mail"></td>
+      <td>{{user.country}}</td>
+      <td><input class="form-control" type="checkbox" [(ngModel)]="user.confirmed" ></td>
+      <td><input class="form-control" type="checkbox" [(ngModel)]="user.admin"></td>
+      <td><input class="form-control" type="text" [(ngModel)]="user.balance" (ngModelChange)="updateBalance(user.id,user.balance)"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,7 +1,6 @@
-export interface User {
+export interface UserWithAccount {
   id?: string;
   mail: string;
-  password?: string;
   firstName: string;
   lastName: string;
   country: string;
@@ -9,9 +8,9 @@ export interface User {
   address: string;
   zip: number;
   city: string;
-  picture: string | Blob;
-  confirmed?: boolean;
-  admin?: boolean;
-  token?: string;
+  confirmed: boolean;
+  admin: boolean;
+  balance: number;
 }
+export declare type UsersWithAccount = UserWithAccount[];
 

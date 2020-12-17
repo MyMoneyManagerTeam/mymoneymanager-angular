@@ -1,10 +1,12 @@
 
-<form [formGroup]="transaction_form" (ngSubmit)="createTransaction()">
-  <div class="form-group">
-    <label for="account_name">nom du compte: </label><input type="text" id="account_name" class="form-control" name="name_receiver" formControlName="name_receiver"/><br>
-    <label for="account_id">id du compte: </label><input type="text" id="account_id" class="form-control" name="id_receiver" formControlName="id_receiver"/><br>
-    <label for="account_somme">Somme à envoyé: </label><input type="number" id="account_somme" class="form-control" name="value_receiver" formControlName="value_receiver"/><br>
-    <label for="account_description">Description: </label><input type="text" id="account_description" class="form-control" name="description_receiver" formControlName="description_receiver"/><br>
-    <button type="submit" class="btn btn-primary" name="confirmer">confirmer</button>
-  </div>
-</form>
+<div class="formContainer ">
+  <form class="text-center border border-light p-5 shadow p-3 mb-5 bg-white rounded" [formGroup]="transaction_form" (ngSubmit)="createTransaction()">
+    <div class="form-group">
+      <label for="account_name">Nom du compte: </label><input type="text" id="account_name" class="form-control" name="name_receiver" formControlName="name_receiver" placeholder="(Facultatif)"/><br>
+      <label for="account_id">Id du compte: </label><input type="text" id="account_id" class="form-control" name="id_receiver" formControlName="id_receiver" placeholder="ID"/><br>
+      <label for="account_somme">Montant: </label><input type="number" id="account_somme" class="form-control" name="value_receiver" formControlName="value_receiver" placeholder="Veuillez saisir un montant"/><br>
+      <label for="account_description">Description: </label><input type="text" id="account_description" class="form-control" name="description_receiver" formControlName="description_receiver" placeholder="(Facultatif)"/><br>
+      <button type="submit" class="btn btn-primary" name="confirmer">Effectuer la transaction</button>
+    </div>
+  </form>
+</div>
