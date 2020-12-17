@@ -17,12 +17,13 @@
       <td>{{index}}</td>
       <td>{{user.id}}</td>
       <td>{{user.lastName}}</td>
-      <td><input class="form-control" type="text" [(ngModel)]="user.mail"></td>
+      <td>{{user.mail}}</td>
       <td>{{user.country}}</td>
-      <td><input class="form-control" type="checkbox" [(ngModel)]="user.confirmed" ></td>
-      <td><input class="form-control" type="checkbox" [(ngModel)]="user.admin"></td>
-      <td><input class="form-control" type="text" [(ngModel)]="user.balance" (ngModelChange)="updateBalance(user.id,user.balance)"></td>
+      <td><input class="form-control" type="checkbox" [(ngModel)]="user.confirmed" (ngModelChange)="updatePrivileges({id: user.id, admin: user.admin, confirmed: user.confirmed})"></td>
+      <td><input class="form-control" type="checkbox" [(ngModel)]="user.admin" (ngModelChange)="updatePrivileges({id: user.id, admin: user.admin, confirmed: user.confirmed})"></td>
+      <td><input class="form-control" type="number" [(ngModel)]="user.balance" (ngModelChange)="updateBalance(user.id,user.balance)"></td>
     </tr>
     </tbody>
   </table>
 </div>
+

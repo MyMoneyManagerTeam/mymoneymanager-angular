@@ -15,7 +15,6 @@ import {User} from "../../../_models/user.model";
 export class SimulationComponent implements OnInit {
 
   usersWithAccount: UsersWithAccount = [];
-  subscriptions: any = [];
   constructor(private userRepository: UserService, private accounRepository: AccountService, private alertService: AlertService) { }
 
   ngOnInit(): void {
@@ -30,8 +29,10 @@ export class SimulationComponent implements OnInit {
   }
 
   updateBalance(account: UserAccountToApi) {
-    this.subscriptions.push(
-      this.accounRepository.update(account).subscribe()
-    );
+    this.accounRepository.update(account).subscribe();
+  }
+
+  updatePrivileges(user: User) {
+    this.userRepository.update(user).subscribe();
   }
 }

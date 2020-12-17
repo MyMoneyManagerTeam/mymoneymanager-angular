@@ -5,7 +5,7 @@
       <li [routerLink]="['jars']" routerLinkActive="text-white">Espace(s)</li>
       <li [routerLink]="['manage']" routerLinkActive="text-white">Gérer</li>
       <li [routerLink]="['consult']" routerLinkActive="text-white">Consulter</li>
-      <li [routerLink]="['simulation']" routerLinkActive="text-white">Simulation</li>
+      <li [routerLink]="['simulation']" *ngIf="this.isAdmin" routerLinkActive="text-white">Simulation</li>
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -1,4 +1,5 @@
 <app-sim-list
   [usersWithAccount]="this.usersWithAccount"
   (balanceChanged)="updateBalance($event)"
+  (userChanged)="updatePrivileges($event)"
 ></app-sim-list>

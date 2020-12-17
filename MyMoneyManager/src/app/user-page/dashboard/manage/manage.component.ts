@@ -43,7 +43,7 @@ export class ManageComponent implements OnInit {
 
       },
       error => {
-        this.alertService.error('Transaction non valide', {autoClose: true, keepAfterRouteChange: true});
+        this.alertService.error(error, {autoClose: true, keepAfterRouteChange: true});
         this.loading = false;
       });
     this.loading = false;

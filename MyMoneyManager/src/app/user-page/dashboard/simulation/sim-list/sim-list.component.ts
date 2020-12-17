@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {UsersWithAccount, UserWithAccount} from "../../../../_models/user-with-account";
 import {UserAccountToApi} from "../../../../_models/account.model";
+import {User} from "../../../../_models/user.model";
 
 @Component({
   selector: 'app-sim-list',
@@ -10,15 +11,22 @@ import {UserAccountToApi} from "../../../../_models/account.model";
 export class SimListComponent implements OnInit {
 
   @Input() usersWithAccount: UsersWithAccount = [];
-  @Output() userChanged: EventEmitter<UserWithAccount> = new EventEmitter<UserWithAccount>();
-  @Output() balanceChanged: EventEmitter<UserWithAccount> = new EventEmitter<UserWithAccount>();
+  @Output() userChanged: EventEmitter<User> = new EventEmitter<User>();
+  @Output() balanceChanged: EventEmitter<UserAccountToApi> = new EventEmitter<UserAccountToApi>();
+  userAccount: UserAccountToApi;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  updateBalance(id: String, balance: number) {
+  updatePrivileges(user: User){
+    this.userChanged.emit(user);
+  }
 
-    this.balanceChanged.emit();
+  updateBalance(id: string, balance: number) {
+    if(balance!=null){
+      this.userAccount = {userId: id, amount: balance};
+      this.balanceChanged.emit(this.userAccount);
+    }
   }
 }

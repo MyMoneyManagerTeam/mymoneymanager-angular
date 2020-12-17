@@ -67,4 +67,6 @@ export class AuthentificationService {
         this.uploadImage(user.picture as File, msg.token).subscribe(value => {}, error => console.log(error));
       }));
   }
+
+  update
 }

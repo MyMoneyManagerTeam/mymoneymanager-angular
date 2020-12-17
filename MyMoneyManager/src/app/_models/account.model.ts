@@ -6,5 +6,5 @@ export interface UserAccount {
 
 export interface UserAccountToApi{
   userId:string;
-  balance:number;
+  amount:number;
 }

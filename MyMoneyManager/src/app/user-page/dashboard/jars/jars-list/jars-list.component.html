@@ -6,7 +6,7 @@
         <mat-card-subtitle>{{jar.balance}}/{{jar.max===0?'&infin;':jar.max}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <mat-progress-bar [mode]="jar.max!==0 ? 'determinate':'indeterminate'" color="primary" [value]="jar.max!==0 ?(jar.balance/jar.max)*100:0"></mat-progress-bar>
+        <mat-progress-bar *ngIf="jar.max!==0" [mode]="'determinate'" color="primary" [value]="jar.max!==0 ?(jar.balance/jar.max)*100:0"></mat-progress-bar>
         <p>
           {{jar.description}}
         </p>
