@@ -9,7 +9,8 @@
       <th scope="col">Pays</th>
       <th scope="col">Confirmé</th>
       <th scope="col">Admin</th>
-      <th scope="col">Balance</th>
+      <th scope="col">Montant</th>
+      <th scope="col"> Appliquer</th>
     </tr>
     </thead>
     <tbody>
@@ -21,7 +22,8 @@
       <td>{{user.country}}</td>
       <td><input class="form-control" type="checkbox" [(ngModel)]="user.confirmed" (ngModelChange)="updatePrivileges({id: user.id, admin: user.admin, confirmed: user.confirmed})"></td>
       <td><input class="form-control" type="checkbox" [(ngModel)]="user.admin" (ngModelChange)="updatePrivileges({id: user.id, admin: user.admin, confirmed: user.confirmed})"></td>
-      <td><input class="form-control" type="number" [(ngModel)]="user.balance" (ngModelChange)="updateBalance(user.id,user.balance)"></td>
+      <td><input class="form-control" type="number" [(ngModel)]="user.amount"></td>
+      <td><input class="btn btn-primary" type="submit" (click)="updateBalance(user)"></td>
     </tr>
     </tbody>
   </table>

@@ -23,10 +23,11 @@ export class SimListComponent implements OnInit {
     this.userChanged.emit(user);
   }
 
-  updateBalance(id: string, balance: number) {
-    if(balance!=null){
-      this.userAccount = {userId: id, amount: balance};
+  updateBalance(user: UserWithAccount) {
+    if(user.amount!=null){
+      this.userAccount = {userId: user.id, amount: user.amount};
       this.balanceChanged.emit(this.userAccount);
     }
+    user.amount = 0;
   }
 }

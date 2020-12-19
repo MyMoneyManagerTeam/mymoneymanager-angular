@@ -24,6 +24,7 @@ export class SimulationComponent implements OnInit {
   loadUsers(){
     // METHODES APPELANT LE USER SERVICE POUR LES REQUETES API
       this.userRepository.query().subscribe(value => {
+        value.forEach((value1,index) => value[index].amount = 0),
         this.usersWithAccount = value;},
           error => this.alertService.error('Impossible de charger les utilisateurs'));
   }

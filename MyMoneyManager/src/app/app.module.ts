@@ -20,7 +20,6 @@ import { SettingsComponent } from './user-page/settings/settings.component';
 import { HelpComponent } from './user-page/help/help.component';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { HpHomeComponent } from './home-page/hp-home/hp-home.component';
-import { HpPresentationComponent } from './home-page/hp-presentation/hp-presentation.component';
 import { HpContactComponent } from './home-page/hp-contact/hp-contact.component';
 import { HpConnectionComponent } from './home-page/hp-connection/hp-connection.component';
 import { HpNavBarComponent } from './home-page/hp-nav-bar/hp-nav-bar.component';
@@ -80,7 +79,6 @@ import {SimListComponent} from "./user-page/dashboard/simulation/sim-list/sim-li
         SettingsComponent,
         HelpComponent,
         HpHomeComponent,
-        HpPresentationComponent,
         HpContactComponent,
         HpConnectionComponent,
         HpNavBarComponent,

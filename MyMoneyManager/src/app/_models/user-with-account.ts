@@ -11,6 +11,7 @@ export interface UserWithAccount {
   confirmed: boolean;
   admin: boolean;
   balance: number;
+  amount?: number;
 }
 export declare type UsersWithAccount = UserWithAccount[];
 
